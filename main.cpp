@@ -13,7 +13,7 @@
 
 // TODO .h
 
-std::vector<std::vector<int>> generate_randomly_integer_matrix(int num_row,
+std::vector<std::vector<int>> generate_random_integer_matrix(int num_row,
                                                                int num_col);
 void print_matrix(std::vector<std::vector<int>>& target_matrix);
 std::vector<std::vector<int>> multiply_2_matrix(
@@ -28,9 +28,9 @@ std::vector<std::vector<int>> multiply_2_matrix(
 int main() {
   // generate randomly two input matrices
   std::vector<std::vector<int>> input_matrix_1 =
-      generate_randomly_integer_matrix(2, 1);
+      generate_random_integer_matrix(2, 1);
   std::vector<std::vector<int>> input_matrix_2 =
-      generate_randomly_integer_matrix(1, 2);
+      generate_random_integer_matrix(1, 2);
 
   // print input matrices
   std::cout << "input_matrix_1:" << "\n";
@@ -47,7 +47,7 @@ int main() {
   print_matrix(output_matrix);
 }
 
-std::vector<std::vector<int>> generate_randomly_integer_matrix(int num_row,
+std::vector<std::vector<int>> generate_random_integer_matrix(int num_row,
                                                                int num_col) {
   std::vector<std::vector<int>> new_matrix;
   
