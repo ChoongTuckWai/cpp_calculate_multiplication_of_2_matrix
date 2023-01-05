@@ -33,9 +33,9 @@ int main() {
       generate_randomly_integer_matrix(1, 2);
 
   // print input matrices
-  std::cout << "input_matrix_1:" << std::endl;
+  std::cout << "input_matrix_1:" << "\n";
   print_matrix(input_matrix_1);
-  std::cout << "input_matrix_2:" << std::endl;
+  std::cout << "input_matrix_2:" << "\n";
   print_matrix(input_matrix_2);
 
   // get output matrice
@@ -43,7 +43,7 @@ int main() {
       multiply_2_matrix(input_matrix_1, input_matrix_2);
 
   // print output matrice
-  std::cout << "output_matrix:" << std::endl;
+  std::cout << "output_matrix:" << "\n";
   print_matrix(output_matrix);
 }
 
