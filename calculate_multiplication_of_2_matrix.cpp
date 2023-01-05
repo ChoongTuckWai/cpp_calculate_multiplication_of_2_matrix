@@ -29,13 +29,13 @@ int main(int argc, char** argv) {
   // load matrix
   // TODO: is_file_exist
   // TODO: check type
-  // cout << (argc - 1) << " Input Matrix(s):"
-  //      << endl;
-  // for (int i = 1; i < argc; ++i) {
-  //   cout << argv[i] << endl;
-  //   // load_matrix(argv[i]);
-  //   // ifstream infile("A.txt");
-  // }
+  cout << (argc - 1) << " Input Matrix(s):"
+       << endl;
+  for (int i = 1; i < argc; ++i) {
+    cout << argv[i] << endl;
+    load_matrix(argv[i]);
+    // ifstream infile("A.txt");
+  }
 
   // open the file
   // ifstream input_file("A.txt");
@@ -53,7 +53,9 @@ int main(int argc, char** argv) {
   string line;
   vector<vector<int>> input_matrix;
   vector<int> numbers;
+  
   while (getline(input_file, line)) {
+    istream_iterator<int> start(line), end;
     numbers.push_back(stoi(line));
   }
 
@@ -64,8 +66,6 @@ int main(int argc, char** argv) {
   for (const auto& l : numbers) {
     cout << l << endl;
   }
-
-  // TODO: check input size
 
   // multiplication
   // vector<vector<int>> A = {{1, 2}};
@@ -97,26 +97,26 @@ bool is_num_input_matrix_more_than_one(int argc) {
 vector<vector<int>> load_matrix(char* file_name) {
   vector<vector<int>> output_matrix;
 
-  // ifstream inputFile(file_name);
-  // istream_iterator<int> start(inputFile), end;
-  // vector<vector<int>> input_matrix(start, end);
-  // cout << "Read " << input_matrix.size() << " numbers" << endl;
+  ifstream inputFile(file_name);
+  istream_iterator<int> start(inputFile), end;
+  vector<vector<int>> input_matrix(start, end);
+  cout << "Read " << input_matrix.size() << " numbers" << endl;
 
-  // cout << "numbers read in:" << endl;
-  // copy(input_matrix.begin(), input_matrix.end(),
-  //           ostream_iterator<int>(cout, " "));
-  // cout << endl;
+  cout << "numbers read in:" << endl;
+  copy(input_matrix.begin(), input_matrix.end(),
+            ostream_iterator<int>(cout, " "));
+  cout << endl;
 
-  // int row_A = input_matrix.size();
-  // if (row_A == 0) return output_matrix;
-  // int col_A = input_matrix[0].size();
-  // if (col_A == 0) return output_matrix;
+  int row_A = input_matrix.size();
+  if (row_A == 0) return output_matrix;
+  int col_A = input_matrix[0].size();
+  if (col_A == 0) return output_matrix;
 
-  // // resize output matrix
-  // output_matrix.resize(row_A);
-  // for (int i = 0; i < row_A; ++i) {
-  //   output_matrix[i].resize(col_A);
-  // }
+  // resize output matrix
+  output_matrix.resize(row_A);
+  for (int i = 0; i < row_A; ++i) {
+    output_matrix[i].resize(col_A);
+  }
 
   return output_matrix;
 }
@@ -125,25 +125,25 @@ vector<vector<int>> multiplication_2_matrix(vector<vector<int>>& matrix_1,
                                             vector<vector<int>>& matrix_2) {
   vector<vector<int>> output_matrix;
 
-  int row_A = matrix_1.size();
-  if (row_A == 0) return output_matrix;
-  int col_A = matrix_1[0].size();
-  if (col_A == 0) return output_matrix;
-  int row_B = matrix_2.size();
-  if (row_B == 0) return output_matrix;
-  int col_B = matrix_2[0].size();
-  if (col_B == 0) return output_matrix;
+  int row_matrix_1 = matrix_1.size();
+  if (row_matrix_1 == 0) return output_matrix;
+  int col_matrix_1 = matrix_1[0].size();
+  if (col_matrix_1 == 0) return output_matrix;
+  int row_matrix_2 = matrix_2.size();
+  if (row_matrix_2 == 0) return output_matrix;
+  int col_matrix_2 = matrix_2[0].size();
+  if (col_matrix_2 == 0) return output_matrix;
 
   // resize output matrix
-  output_matrix.resize(row_A);
-  for (int i = 0; i < row_A; ++i) {
-    output_matrix[i].resize(col_B);
+  output_matrix.resize(row_matrix_1);
+  for (int i = 0; i < row_matrix_1; ++i) {
+    output_matrix[i].resize(col_matrix_2);
   }
 
   // multiply 2 matrix
-  for (int i = 0; i < row_A; ++i) {
-    for (int j = 0; j < col_B; ++j) {
-      for (int k = 0; k < col_A; ++k) {
+  for (int i = 0; i < row_matrix_1; ++i) {
+    for (int j = 0; j < col_matrix_2; ++j) {
+      for (int k = 0; k < col_matrix_1; ++k) {
         output_matrix[i][j] += matrix_1[i][k] * matrix_2[k][j];
       }
     }

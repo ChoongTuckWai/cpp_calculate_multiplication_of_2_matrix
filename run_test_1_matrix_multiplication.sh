@@ -1,1 +1,0 @@
-./"calculate_multiplication_of_2_matrix" A.txt
