@@ -22,7 +22,7 @@ std::vector<std::vector<int>> multiply_2_matrix(
     std::vector<std::vector<int>>& matrix_2);
 
 int main() {
-  // generate randomly two input matrices
+  // generate randomly two input matrices by typing size of two input matrices
   int num_row_input_matrix_1, num_col_input_matrix_1;
   int num_row_input_matrix_2, num_col_input_matrix_2;
 
