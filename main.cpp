@@ -11,22 +11,22 @@
 
 int main() {
   // generate randomly two input matrices by typing size of two input matrices
-  int num_row_input_matrix_1, num_col_input_matrix_1;
-  int num_row_input_matrix_2, num_col_input_matrix_2;
+  int num_row_input_matrix_1 = 2, num_col_input_matrix_1 = 2;
+  int num_row_input_matrix_2 = 2, num_col_input_matrix_2 = 2;
 
-  std::cout << "num_row_input_matrix_1: ";
-  std::cin >> num_row_input_matrix_1;
-  std::cout << "num_col_input_matrix_1: ";
-  std::cin >> num_col_input_matrix_1;
+  // std::cout << "num_row_input_matrix_1: ";
+  // std::cin >> num_row_input_matrix_1;
+  // std::cout << "num_col_input_matrix_1: ";
+  // std::cin >> num_col_input_matrix_1;
 
-  std::cout << "num_row_input_matrix_2: ";
-  std::cin >> num_row_input_matrix_2;
-  std::cout << "num_col_input_matrix_2: ";
-  std::cin >> num_col_input_matrix_2;
+  // std::cout << "num_row_input_matrix_2: ";
+  // std::cin >> num_row_input_matrix_2;
+  // std::cout << "num_col_input_matrix_2: ";
+  // std::cin >> num_col_input_matrix_2;
 
-  std::vector<std::vector<int>> input_matrix_1 = generate_random_integer_matrix(
+  std::vector<std::vector<double>> input_matrix_1 = generate_random_float_matrix(
       num_row_input_matrix_1, num_col_input_matrix_1);
-  std::vector<std::vector<int>> input_matrix_2 = generate_random_integer_matrix(
+  std::vector<std::vector<double>> input_matrix_2 = generate_random_float_matrix(
       num_row_input_matrix_2, num_col_input_matrix_2);
 
   // print input matrices
@@ -39,7 +39,7 @@ int main() {
   print_matrix(input_matrix_2);
 
   // get output matrice
-  std::vector<std::vector<int>> output_matrix =
+  std::vector<std::vector<double>> output_matrix =
       multiply_2_matrix(input_matrix_1, input_matrix_2);
 
   // print output matrice

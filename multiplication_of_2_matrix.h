@@ -1,12 +1,12 @@
 #include <iostream>
 #include <vector>
 
-std::vector<std::vector<int>> multiply_2_matrix(
-    std::vector<std::vector<int>>& matrix_1,
-    std::vector<std::vector<int>>& matrix_2) {
-  std::vector<std::vector<int>> output_matrix;
+std::vector<std::vector<double>> multiply_2_matrix(
+    std::vector<std::vector<double>>& matrix_1,
+    std::vector<std::vector<double>>& matrix_2) {
+  std::vector<std::vector<double>> output_matrix;
 
-  int row_matrix_1 = matrix_1.size();
+  double row_matrix_1 = matrix_1.size();
   if (row_matrix_1 == 0) {
     std::cout << "cannot be multiplied!"
               << "\n"
@@ -14,7 +14,7 @@ std::vector<std::vector<int>> multiply_2_matrix(
 
     return output_matrix;
   }
-  int row_matrix_2 = matrix_2.size();
+  double row_matrix_2 = matrix_2.size();
   if (row_matrix_2 == 0) {
     std::cout << "cannot be multiplied!"
               << "\n"
@@ -22,8 +22,8 @@ std::vector<std::vector<int>> multiply_2_matrix(
 
     return output_matrix;
   }
-  int col_matrix_1 = matrix_1[0].size();
-  int col_matrix_2 = matrix_2[0].size();
+  double col_matrix_1 = matrix_1[0].size();
+  double col_matrix_2 = matrix_2[0].size();
 
   // check if this 2 metrix can be multiplied or not
   // if not, then return none

@@ -2,30 +2,36 @@
 
 #include <iostream>
 #include <vector>
+#include <cmath>
+#include <ctime>
 
-#define MAX_RAMDOM_NUM 10
+#define MAX_RAMDOM_NUM 100
+#define ROUNDING_ATFER_POINT 3
 
-std::vector<std::vector<int>> generate_random_integer_matrix(int num_row,
+std::vector<std::vector<double>> generate_random_float_matrix(int num_row,
                                                              int num_col) {
-  std::vector<std::vector<int>> new_matrix;
-
+  std::vector<std::vector<double>> new_matrix;
+  
   // resize matrice
   new_matrix.resize(num_row);
   for (int i = 0; i < num_row; ++i) {
     new_matrix[i].resize(num_col);
   }
 
+  // set random seed
+  srand (static_cast <unsigned> (time(0)));
   // fill matrice
   for (int i = 0; i < num_row; i++) {
     for (int j = 0; j < num_col; j++) {
-      new_matrix[i][j] = rand() % MAX_RAMDOM_NUM;
+      new_matrix[i][j] = (rand() % MAX_RAMDOM_NUM) + ((rand() % MAX_RAMDOM_NUM) / (pow(10,ROUNDING_ATFER_POINT)));
+      std::cout << new_matrix[i][j] << " ";
     }
   }
 
   return new_matrix;
 }
 
-void print_matrix(std::vector<std::vector<int>>& target_matrix) {
+void print_matrix(std::vector<std::vector<double>>& target_matrix) {
   int num_row = target_matrix.size();
 
   // check if can be print out or not
