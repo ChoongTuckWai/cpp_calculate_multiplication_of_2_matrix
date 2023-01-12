@@ -14,12 +14,14 @@ int main() {
   int num_row_input_matrix_1 = 2, num_col_input_matrix_1 = 2;
   int num_row_input_matrix_2 = 2, num_col_input_matrix_2 = 2;
 
-  std::vector<std::vector<double>> input_matrix_1 = generate_random_float_matrix(
-      num_row_input_matrix_1, num_col_input_matrix_1);
-  std::vector<std::vector<double>> input_matrix_2 = generate_random_float_matrix(
-      num_row_input_matrix_2, num_col_input_matrix_2);
+  std::vector<std::vector<double>> input_matrix_1 =
+      generate_random_float_matrix(num_row_input_matrix_1,
+                                   num_col_input_matrix_1);
+  std::vector<std::vector<double>> input_matrix_2 =
+      generate_random_float_matrix(num_row_input_matrix_2,
+                                   num_col_input_matrix_2);
 
   // get output matrice
   std::vector<std::vector<double>> output_matrix =
       multiply_2_matrix(input_matrix_1, input_matrix_2);
-  }
+}
