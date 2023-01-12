@@ -23,10 +23,23 @@ std::vector<std::vector<int>> multiply_2_matrix(
 
 int main() {
   // generate randomly two input matrices
+  int num_row_input_matrix_1, num_col_input_matrix_1;
+  int num_row_input_matrix_2, num_col_input_matrix_2;
+
+  std::cout << "num_row_input_matrix_1: ";
+  std::cin >> num_row_input_matrix_1;
+  std::cout << "num_col_input_matrix_1: ";
+  std::cin >> num_col_input_matrix_1;
+
+  std::cout << "num_row_input_matrix_2: ";
+  std::cin >> num_row_input_matrix_2;
+  std::cout << "num_col_input_matrix_2: ";
+  std::cin >> num_col_input_matrix_2;
+
   std::vector<std::vector<int>> input_matrix_1 =
-      generate_random_integer_matrix(0, 2);
+      generate_random_integer_matrix(num_row_input_matrix_1, num_col_input_matrix_1);
   std::vector<std::vector<int>> input_matrix_2 =
-      generate_random_integer_matrix(1, 2);
+      generate_random_integer_matrix(num_row_input_matrix_2, num_col_input_matrix_2);
 
   // print input matrices
   std::cout << "input_matrix_1:"
