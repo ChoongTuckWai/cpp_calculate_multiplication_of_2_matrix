@@ -24,7 +24,7 @@ std::vector<std::vector<int>> multiply_2_matrix(
 int main() {
   // generate randomly two input matrices
   std::vector<std::vector<int>> input_matrix_1 =
-      generate_random_integer_matrix(2, 2);
+      generate_random_integer_matrix(0, 2);
   std::vector<std::vector<int>> input_matrix_2 =
       generate_random_integer_matrix(1, 2);
 
@@ -99,10 +99,11 @@ std::vector<std::vector<int>> multiply_2_matrix(
 
   // check if this 2 metrix can be multiplied or not
   // if not, then return none
-  if (col_matrix_1 != row_matrix_2) {
+  if (row_matrix_1 == 0 || row_matrix_2 == 0 || col_matrix_1 != row_matrix_2) {
     std::cout << "cannot be multiplied!"
-              << "\n"<< "\n";
-    
+              << "\n"
+              << "\n";
+
     return output_matrix;
   }
 
