@@ -93,13 +93,27 @@ std::vector<std::vector<int>> multiply_2_matrix(
   std::vector<std::vector<int>> output_matrix;
 
   int row_matrix_1 = matrix_1.size();
-  int col_matrix_1 = matrix_1[0].size();
+  if (row_matrix_1 == 0) {
+    std::cout << "cannot be multiplied!"
+              << "\n"
+              << "\n";
+
+    return output_matrix;
+  }
   int row_matrix_2 = matrix_2.size();
+  if (row_matrix_2 == 0) {
+    std::cout << "cannot be multiplied!"
+              << "\n"
+              << "\n";
+
+    return output_matrix;
+  }
+  int col_matrix_1 = matrix_1[0].size();
   int col_matrix_2 = matrix_2[0].size();
 
   // check if this 2 metrix can be multiplied or not
   // if not, then return none
-  if (row_matrix_1 == 0 || row_matrix_2 == 0 || col_matrix_1 != row_matrix_2) {
+  if (col_matrix_1 != row_matrix_2) {
     std::cout << "cannot be multiplied!"
               << "\n"
               << "\n";

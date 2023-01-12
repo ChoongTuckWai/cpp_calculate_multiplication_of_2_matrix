@@ -1,17 +1,15 @@
-# Variables
-CXX=g++
-CXXFLAGS=-std=c++11 -w
+all: builds run
 
-build: main.cpp local_header.hpp includes/external_lib.hpp 
-    @echo "\n\nmain.cpp: Building..."
-    $(CXX) $(CXXFLAGS) -o main.out main.cpp
+init:
+	mkdir -p build; \
+	cd build; \
+	cmake .. -DCMAKE_TOOLCHAIN_FILE="~/vcpkg/scripts/buildsystems/vcpkg.cmake"
 
-run: main.out
-    @echo "\n\nmain.cpp: Executing..."
-    ./main.out
+builds:
+	cmake --build build
 
-clean: main.out
-    @echo "\n\nmain.cpp: Cleaning..."
-    rm main.out
+run:
+	./build/main
 
-all: build run clean
+clean:
+	rm -rf build
