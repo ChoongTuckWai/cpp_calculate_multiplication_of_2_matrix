@@ -1,15 +1,5 @@
-all: builds run
-
-init:
-	mkdir -p build; \
-	cd build; \
-	cmake .. -DCMAKE_TOOLCHAIN_FILE="~/vcpkg/scripts/buildsystems/vcpkg.cmake"
-
-builds:
-	cmake --build build
-
-run:
-	./build/main
+all: main.cpp
+	g++ main.cpp -o main.out
 
 clean:
-	rm -rf build
+	rm -rf main.out
