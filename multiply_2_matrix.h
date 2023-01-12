@@ -1,5 +1,5 @@
-#ifndef _MULTIPLICATION_OF_2_MATRIX_
-#define _MULTIPLICATION_OF_2_MATRIX_
+#ifndef _MULTIPLY_2_MATRIX_
+#define _MULTIPLY_2_MATRIX_
 
 #include <vector>
 

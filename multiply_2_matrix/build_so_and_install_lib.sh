@@ -5,5 +5,5 @@ mkdir build; cd build;
 cmake ..
 make
 
-# run
-./multiply_2_matrix
+# install
+sudo make install

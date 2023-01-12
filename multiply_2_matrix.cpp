@@ -1,4 +1,4 @@
-#include "multiplication_of_2_matrix.h"
+#include "multiply_2_matrix.h"
 
 #include <iostream>
 #include <vector>
