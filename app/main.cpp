@@ -3,17 +3,50 @@
 // 1. Please provide a C/C++ function that calculates the multiplication of two
 // matrices.
 // 2. You also need to define your own interface that makes performance better.
-#include <lib/multiply_2_matrix/multiply_2_matrix.h>
 #include <lib/helper_function_matrix/helper_function_matrix.h>
+#include <lib/multiply_2_matrix/multiply_2_matrix.h>
 
 #include <chrono>  //Measure execution time
 #include <iostream>
 #include <vector>
 
-int main() {
-  // generate randomly two input matrices by typing size of two input matrices
-  int num_row_input_matrix_1 = 100, num_col_input_matrix_1 = 100;
-  int num_row_input_matrix_2 = 100, num_col_input_matrix_2 = 100;
+int main(int argc, char *argv[]) {
+  // extract size of input matrix
+  int num_row_input_matrix_1, num_col_input_matrix_1, num_row_input_matrix_2,
+      num_col_input_matrix_2;
+
+  if (argc == 1) {  // set all two matrix size to default value 100
+    num_row_input_matrix_1 = 100, num_col_input_matrix_1 = 100;
+    num_row_input_matrix_2 = 100, num_col_input_matrix_2 = 100;
+  } else if (argc == 2) {  // set all two matrix size to argv[1]
+    num_row_input_matrix_1 = atoi(argv[1]);
+    num_col_input_matrix_1 = atoi(argv[1]);
+    num_row_input_matrix_2 = atoi(argv[1]);
+    num_col_input_matrix_2 = atoi(argv[1]);
+  } else if (argc == 3) {  // set first matrix size to argv[1], then set second
+                           // matrix size to argv[2]
+    num_row_input_matrix_1 = atoi(argv[1]);
+    num_col_input_matrix_1 = atoi(argv[1]);
+    num_row_input_matrix_2 = atoi(argv[2]);
+    num_col_input_matrix_2 = atoi(argv[2]);
+  } else if (argc == 5) {  // set first matrix size to (argv[1], argv[2]), then
+                           // set second matrix size to (argv[3], argv[4])
+    num_row_input_matrix_1 = atoi(argv[1]);
+    num_col_input_matrix_1 = atoi(argv[2]);
+    num_row_input_matrix_2 = atoi(argv[3]);
+    num_col_input_matrix_2 = atoi(argv[4]);
+  } else {  // report warning: Wrong number of arguments, pls follow the
+            // instruction.
+    std::cout << "Wrong number of arguments, pls follow the instruction."
+              << "\n";
+    return 1;
+  }
+
+  // generate two matrices with random double type value
+  std::cout << "num_row_input_matrix_1: " << num_row_input_matrix_1 << "\n";
+  std::cout << "num_col_input_matrix_1: " << num_col_input_matrix_1 << "\n";
+  std::cout << "num_row_input_matrix_2: " << num_row_input_matrix_2 << "\n";
+  std::cout << "num_col_input_matrix_2: " << num_col_input_matrix_2 << "\n";
 
   std::vector<std::vector<double>> input_matrix_1 =
       generate_random_float_matrix(num_row_input_matrix_1,
