@@ -1,9 +1,8 @@
-#ifndef _MULTIPLY_2_MATRIX_
-#define _MULTIPLY_2_MATRIX_
+#ifndef _MULTIPLY_2_MATRIX_H_
+#define _MULTIPLY_2_MATRIX_H_
 
-#include <vector>
-
-std::vector<std::vector<double>> multiply_2_matrix(
-    std::vector<std::vector<double>>&, std::vector<std::vector<double>>&);
+double** multiply_2_matrix(double** matrix_1, double** matrix_2,
+                           int num_row_matrix_1, int num_col_matrix_1,
+                           int num_row_matrix_2, int num_col_matrix_2);
 
 #endif
