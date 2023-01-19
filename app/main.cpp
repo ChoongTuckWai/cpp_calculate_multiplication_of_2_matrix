@@ -10,36 +10,39 @@
 #include <iostream>
 #include <vector>
 
+#define DEFAULT_MATRIX_SIZE 100
+
 int main(int argc, char *argv[]) {
   // extract size of input matrix
   int num_row_input_matrix_1, num_col_input_matrix_1, num_row_input_matrix_2,
       num_col_input_matrix_2;
-
-  if (argc == 1) {  // set all two matrix size to default value 100
-    num_row_input_matrix_1 = 100, num_col_input_matrix_1 = 100;
-    num_row_input_matrix_2 = 100, num_col_input_matrix_2 = 100;
-  } else if (argc == 2) {  // set all two matrix size to argv[1]
-    num_row_input_matrix_1 = atoi(argv[1]);
-    num_col_input_matrix_1 = atoi(argv[1]);
-    num_row_input_matrix_2 = atoi(argv[1]);
-    num_col_input_matrix_2 = atoi(argv[1]);
-  } else if (argc == 3) {  // set first matrix size to argv[1], then set second
-                           // matrix size to argv[2]
-    num_row_input_matrix_1 = atoi(argv[1]);
-    num_col_input_matrix_1 = atoi(argv[1]);
-    num_row_input_matrix_2 = atoi(argv[2]);
-    num_col_input_matrix_2 = atoi(argv[2]);
-  } else if (argc == 5) {  // set first matrix size to (argv[1], argv[2]), then
-                           // set second matrix size to (argv[3], argv[4])
-    num_row_input_matrix_1 = atoi(argv[1]);
-    num_col_input_matrix_1 = atoi(argv[2]);
-    num_row_input_matrix_2 = atoi(argv[3]);
-    num_col_input_matrix_2 = atoi(argv[4]);
-  } else {  // report warning: Wrong number of arguments, pls follow the
-            // instruction.
-    std::cout << "Wrong number of arguments, pls follow the instruction."
-              << "\n";
-    return 1;
+  switch (argc) {
+    case 1:  // set all two matrix size to default value
+      num_row_input_matrix_1 = DEFAULT_MATRIX_SIZE;
+      num_col_input_matrix_1 = DEFAULT_MATRIX_SIZE;
+      num_row_input_matrix_2 = DEFAULT_MATRIX_SIZE;
+      num_col_input_matrix_2 = DEFAULT_MATRIX_SIZE;
+    case 2:  // set all two matrix size to argv[1]
+      num_row_input_matrix_1 = atoi(argv[1]);
+      num_col_input_matrix_1 = atoi(argv[1]);
+      num_row_input_matrix_2 = atoi(argv[1]);
+      num_col_input_matrix_2 = atoi(argv[1]);
+    case 3:  // set first matrix size to argv[1]
+             //, then set second matrix size to argv[2]
+      num_row_input_matrix_1 = atoi(argv[1]);
+      num_col_input_matrix_1 = atoi(argv[1]);
+      num_row_input_matrix_2 = atoi(argv[2]);
+      num_col_input_matrix_2 = atoi(argv[2]);
+    case 5:  // set first matrix size to (argv[1], argv[2])
+             //, then set second matrix size to (argv[3], argv[4])
+      num_row_input_matrix_1 = atoi(argv[1]);
+      num_col_input_matrix_1 = atoi(argv[2]);
+      num_row_input_matrix_2 = atoi(argv[3]);
+      num_col_input_matrix_2 = atoi(argv[4]);
+    default:  // report warning
+      std::cout << "Wrong number of arguments, pls follow the instruction."
+                << "\n";
+      return 0;
   }
 
   // generate two matrices with random double type value
