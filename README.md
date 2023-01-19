@@ -14,12 +14,12 @@
 
 7. For the purpose of this project, you need to at least provide a .so file and a header file. Make sure these files are easy to find.
 
-## TODO
+8. change type vector to pointer:In generate_random_float_matrix, for extremely large number, it can cause stack overflow.
+
+## Notes
 1. Test script can indicate two things: one is to test the correctness of the program and the other is to demonstrate how to use your program.
 
 2. srand() with the same seed reproduces everything for debugging.
 
-3. In generate_random_float_matrix, for extremely large number, it can cause stack overflow.
-
-4. #define in .cpp or .h file has different meaning, just make sure you got it.
+3. #define in .cpp or .h file has different meaning, just make sure you got it.
 
