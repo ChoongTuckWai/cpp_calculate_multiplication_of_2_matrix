@@ -9,6 +9,7 @@
 double** generate_random_float_matrix(int num_row, int num_col) {
   double** new_matrix  = new double*[num_row];;
 
+  // allocate memory
   for (int i = 0; i < num_row; i++) {
     new_matrix[i] = new double[num_col];
   }
@@ -42,4 +43,11 @@ void print_matrix(double** target_matrix, int num_row, int num_col) {
     }
     std::cout << "\n";
   }
+}
+
+void delete_matrix(double** target_matrix, int num_row) {
+    for (int i = 0; i < num_row; i++) {
+        delete[] target_matrix[i];
+    }
+    delete[] target_matrix;
 }

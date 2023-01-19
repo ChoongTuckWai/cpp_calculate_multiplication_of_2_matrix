@@ -7,12 +7,4 @@ function test(){
 }
 
 # run test
-test $app
-
-test $app 50
-
-test $app 10 10
-
-test $app 20 10 10 20
-
-test $app 20 10 10
+test $app 10

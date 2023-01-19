@@ -8,4 +8,6 @@ double** generate_random_float_matrix(int num_row, int num_col);
 
 void print_matrix(double** target_matrix, int num_row, int num_col);
 
+void delete_matrix(double** target_matrix, int num_row);
+
 #endif

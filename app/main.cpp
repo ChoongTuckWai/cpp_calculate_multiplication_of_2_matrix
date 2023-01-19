@@ -68,5 +68,10 @@ int main(int argc, char* argv[]) {
   std::cout << duration.count() << " microseconds"
             << "\n";
 
+  // deallocate memory
+  delete_matrix(input_matrix_1, num_row_input_matrix_1);
+  delete_matrix(input_matrix_2, num_row_input_matrix_2);
+  delete_matrix(output_matrix, num_row_input_matrix_1);
+
   return 0;
 }
