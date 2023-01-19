@@ -45,12 +45,12 @@ int main(int argc, char *argv[]) {
       return 0;
   }
 
-  // generate two matrices with random double type value
   std::cout << "num_row_input_matrix_1: " << num_row_input_matrix_1 << "\n";
   std::cout << "num_col_input_matrix_1: " << num_col_input_matrix_1 << "\n";
   std::cout << "num_row_input_matrix_2: " << num_row_input_matrix_2 << "\n";
   std::cout << "num_col_input_matrix_2: " << num_col_input_matrix_2 << "\n";
 
+  // generate two matrices with random double type value
   std::vector<std::vector<double>> input_matrix_1 =
       generate_random_float_matrix(num_row_input_matrix_1,
                                    num_col_input_matrix_1);
