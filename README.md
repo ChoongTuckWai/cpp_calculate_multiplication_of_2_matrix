@@ -6,8 +6,6 @@
 
 3. Use float or double type instead of int in this project.
 
-5. measure execution time of function
-
-## TODO
-
 4. For UI behavior, use a default value to simplify testing procedure. Keep dynamic input matrix dimension in advanced mode.
+
+5. measure execution time of function
