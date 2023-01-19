@@ -1,12 +1,18 @@
+app="./build/app/app"
+
+function test(){
+    echo $1 $2 $3 $4 $5
+    $1 $2 $3 $4 $5
+    echo ""
+}
+
 # run test
-echo "app"
-./build/app/app
+test $app
 
-echo "app 50"
-./build/app/app 50
+test $app 50
 
-echo "app 10 10"
-./build/app/app 10 10
+test $app 10 10
 
-echo "app 20 10 10 20"
-./build/app/app 20 10 10 20
+test $app 20 10 10 20
+
+test $app 20 10 10
