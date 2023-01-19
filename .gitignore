@@ -1,7 +1,7 @@
 # dev
 .vscode
 build
-bin
+out
 
 # Prerequisites
 *.d

@@ -1,4 +1,4 @@
-app="./build/app/app"
+app="./build/out/app"
 
 function test(){
     echo $1 $2 $3 $4 $5
