@@ -3,13 +3,12 @@
 // 1. Please provide a C/C++ function that calculates the multiplication of two
 // matrices.
 // 2. You also need to define your own interface that makes performance better.
-#include "multiply_2_matrix.h"
+#include <lib/multiply_2_matrix/multiply_2_matrix.h>
+#include <lib/helper_function_matrix/helper_function_matrix.h>
 
 #include <chrono>  //Measure execution time
 #include <iostream>
 #include <vector>
-
-#include "helper_function_matrix.h"
 
 int main() {
   // generate randomly two input matrices by typing size of two input matrices

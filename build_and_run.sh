@@ -6,4 +6,4 @@ cmake ..
 make
 
 # run
-./multiply_2_matrix
+./app/app
