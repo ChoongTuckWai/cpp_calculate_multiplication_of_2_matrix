@@ -21,5 +21,5 @@
 
 4. In generate_random_float_matrix, for extremely large number, it can cause stack overflow.
 
-5. #define in .cpp or .h file has different meaning, just make sure you got it.
+5. #define in .cpp or .h file has different meaning, just make sure you got it.
 
