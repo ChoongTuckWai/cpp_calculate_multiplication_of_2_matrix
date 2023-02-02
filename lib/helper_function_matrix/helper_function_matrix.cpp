@@ -6,10 +6,9 @@
 #include <ctime>
 #include <iostream>
 
-#define USE_TIME_AS_RANDOM_SEED -1
-
-double** generate_random_float_matrix(int num_row, int num_col, int random_seed = USE_TIME_AS_RANDOM_SEED) {
-  double** new_matrix  = new double*[num_row];;
+double** generate_random_float_matrix(int num_row, int num_col,
+                                      int random_seed) {
+  double** new_matrix = new double*[num_row];
 
   // allocate memory
   for (int i = 0; i < num_row; i++) {
@@ -17,12 +16,12 @@ double** generate_random_float_matrix(int num_row, int num_col, int random_seed 
   }
 
   // set random seed
-  if (random_seed = USE_TIME_AS_RANDOM_SEED){
+  if (random_seed == USE_TIME_AS_RANDOM_SEED) {
     srand(static_cast<unsigned>(time(0)));
   } else {
     srand(static_cast<unsigned>(random_seed));
   }
-  
+
   // fill matrice
   for (int i = 0; i < num_row; i++) {
     for (int j = 0; j < num_col; j++) {
@@ -53,8 +52,8 @@ void print_matrix(double** target_matrix, int num_row, int num_col) {
 }
 
 void delete_matrix(double** target_matrix, int num_row) {
-    for (int i = 0; i < num_row; i++) {
-        delete[] target_matrix[i];
-    }
-    delete[] target_matrix;
+  for (int i = 0; i < num_row; i++) {
+    delete[] target_matrix[i];
+  }
+  delete[] target_matrix;
 }
