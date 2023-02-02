@@ -16,7 +16,7 @@ int main(int argc, char* argv[]) {
   int num_row_input_matrix_1, num_col_input_matrix_1, num_row_input_matrix_2,
       num_col_input_matrix_2;
   int random_seed;
-  
+
   if (argc == 2) {  // set all two matrix size to default value
     num_row_input_matrix_1 = DEFAULT_MATRIX_SIZE;
     num_col_input_matrix_1 = DEFAULT_MATRIX_SIZE;
@@ -62,10 +62,16 @@ int main(int argc, char* argv[]) {
   float** input_matrix_2 = generate_random_float_matrix(
       num_row_input_matrix_2, num_col_input_matrix_2, random_seed);
 
+  // allocate memory to output matrix 
+  float** output_matrix = new float*[num_row_input_matrix_1];
+  for (int i = 0; i < num_row_input_matrix_1; i++) {
+    output_matrix[i] = new float[num_col_input_matrix_2];
+  }
+
   // get output matrice and measure execution time
   auto start = std::chrono::high_resolution_clock::now();
-  float** output_matrix = multiply_2_matrix(
-      input_matrix_1, input_matrix_2, num_row_input_matrix_1,
+  multiply_2_matrix(
+      output_matrix, input_matrix_1, input_matrix_2, num_row_input_matrix_1,
       num_col_input_matrix_1, num_row_input_matrix_2, num_col_input_matrix_2);
   auto stop = std::chrono::high_resolution_clock::now();
 
@@ -87,10 +93,10 @@ int main(int argc, char* argv[]) {
   std::cout << "Execution Time:\n";
   std::cout << duration.count() << " microseconds\n";
 
-  // deallocate memory
-  delete_matrix(input_matrix_1, num_row_input_matrix_1);
-  delete_matrix(input_matrix_2, num_row_input_matrix_2);
-  delete_matrix(output_matrix, num_row_input_matrix_1);
+  // deallocate memory of input_matrix_1, input_matrix_2, output_matrix
+  deallocate_memory_of_matrix(input_matrix_1, num_row_input_matrix_1);
+  deallocate_memory_of_matrix(input_matrix_2, num_row_input_matrix_2);
+  deallocate_memory_of_matrix(output_matrix, num_row_input_matrix_1);
 
   return 0;
 }

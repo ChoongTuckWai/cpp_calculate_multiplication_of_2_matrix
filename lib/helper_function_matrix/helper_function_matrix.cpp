@@ -7,13 +7,9 @@
 #include <iostream>
 
 float** generate_random_float_matrix(int num_row, int num_col,
-                                      int random_seed) {
-  float** new_matrix = new float*[num_row];
-
+                                     int random_seed) {
   // allocate memory
-  for (int i = 0; i < num_row; i++) {
-    new_matrix[i] = new float[num_col];
-  }
+  float** new_matrix = allocate_memory_to_matrix(num_row, num_col);
 
   // set random seed
   if (random_seed == USE_TIME_AS_RANDOM_SEED) {
@@ -34,6 +30,24 @@ float** generate_random_float_matrix(int num_row, int num_col,
   return new_matrix;
 }
 
+float** allocate_memory_to_matrix(int num_row, int num_col) {
+  float** new_matrix = new float*[num_row];
+
+  // allocate memory
+  for (int i = 0; i < num_row; i++) {
+    new_matrix[i] = new float[num_col];
+  }
+
+  return new_matrix;
+}
+
+void deallocate_memory_of_matrix(float** target_matrix, int num_row) {
+  for (int i = 0; i < num_row; i++) {
+    delete[] target_matrix[i];
+  }
+  delete[] target_matrix;
+}
+
 void print_matrix(float** target_matrix, int num_row, int num_col) {
   // check if can be print out or not
   if (num_row == 0) {
@@ -49,11 +63,4 @@ void print_matrix(float** target_matrix, int num_row, int num_col) {
     }
     std::cout << "\n";
   }
-}
-
-void delete_matrix(float** target_matrix, int num_row) {
-  for (int i = 0; i < num_row; i++) {
-    delete[] target_matrix[i];
-  }
-  delete[] target_matrix;
 }
