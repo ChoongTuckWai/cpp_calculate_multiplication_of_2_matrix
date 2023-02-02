@@ -88,7 +88,7 @@ int main(int argc, char* argv[]) {
       << output_matrix[num_row_input_matrix_1 * num_col_input_matrix_2 - 3]
       << "\n";
   std::cout << "Execution Time:\n";
-  std::cout << duration.count() << " microseconds\n";
+  std::cout << duration.count() / 1000000.0 << " seconds\n";
 
   // deallocate memory of input_matrix_1, input_matrix_2, output_matrix
   deallocate_memory_of_matrix(input_matrix_1);

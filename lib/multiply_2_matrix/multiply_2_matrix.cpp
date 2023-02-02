@@ -42,15 +42,19 @@ void multiply_2_matrix(float* output_matrix, float* matrix_1, float* matrix_2,
   //     }
   //   }
   // }
-
-  for (int k = 0; k < num_col_matrix_1; ++k) {
-    for (int i = 0; i < num_row_matrix_1; ++i) {
-      for (int j = 0; j < num_col_matrix_2; ++j) {
+  int k, i, j;
+  long long count = 0;
+  for (k = 0; k < num_col_matrix_1; ++k) {
+    for (i = 0; i < num_row_matrix_1; ++i) {
+      for (j = 0; j < num_col_matrix_2; ++j) {
         output_matrix[i * num_row_matrix_1 + j] +=
             matrix_1[i * num_row_matrix_1 + k] *
             matrix_2[k * num_col_matrix_1 + j];
+        count = count + 1;
       }
     }
   }
+  std::cout << k << " " << i << " " << j << '\n';
+  std::cout << count << '\n';
   return;
 }
