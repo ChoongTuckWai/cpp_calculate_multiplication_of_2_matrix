@@ -56,7 +56,7 @@ int main(int argc, char* argv[]) {
   std::cout << "num_col_input_matrix_2: " << num_col_input_matrix_2 << "\n";
   std::cout << "random_seed: " << random_seed << "\n";
 
-  // generate two matrices with random double type value
+  // generate two matrices with random float type value
   float** input_matrix_1 = generate_random_float_matrix(
       num_row_input_matrix_1, num_col_input_matrix_1, random_seed);
   float** input_matrix_2 = generate_random_float_matrix(
