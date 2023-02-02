@@ -41,7 +41,7 @@ void deallocate_memory_of_matrix(float* target_matrix) {
   delete[] target_matrix;
 }
 
-void print_matrix(float** target_matrix, int num_row, int num_col) {
+void print_matrix(float* target_matrix, int num_row, int num_col) {
   // check if can be print out or not
   if (num_row == 0) {
     std::cout << "empty matrix"
@@ -50,7 +50,7 @@ void print_matrix(float** target_matrix, int num_row, int num_col) {
     std::cout << num_row << " " << num_col << "\n";
     for (int i = 0; i < num_row; i++) {
       for (int j = 0; j < num_col; j++) {
-        std::cout << target_matrix[i][j] << "\t";
+        std::cout << target_matrix[i*num_row + j] << "\t";
       }
       std::cout << "\n";
     }

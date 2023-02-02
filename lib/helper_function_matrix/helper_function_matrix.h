@@ -13,6 +13,6 @@ float* allocate_memory_to_matrix(int num_row, int num_col);
 
 void deallocate_memory_of_matrix(float* target_matrix);
 
-void print_matrix(float** target_matrix, int num_row, int num_col);
+void print_matrix(float* target_matrix, int num_row, int num_col);
 
 #endif
