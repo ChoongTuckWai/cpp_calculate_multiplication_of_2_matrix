@@ -1,5 +1,6 @@
 # init
-mkdir build; cd build;
+mkdir build
+cd build
 
 # build
 cmake ..
