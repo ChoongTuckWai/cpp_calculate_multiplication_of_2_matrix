@@ -6,13 +6,13 @@
 #include <ctime>
 #include <iostream>
 
-double** generate_random_float_matrix(int num_row, int num_col,
+float** generate_random_float_matrix(int num_row, int num_col,
                                       int random_seed) {
-  double** new_matrix = new double*[num_row];
+  float** new_matrix = new float*[num_row];
 
   // allocate memory
   for (int i = 0; i < num_row; i++) {
-    new_matrix[i] = new double[num_col];
+    new_matrix[i] = new float[num_col];
   }
 
   // set random seed
@@ -34,7 +34,7 @@ double** generate_random_float_matrix(int num_row, int num_col,
   return new_matrix;
 }
 
-void print_matrix(double** target_matrix, int num_row, int num_col) {
+void print_matrix(float** target_matrix, int num_row, int num_col) {
   // check if can be print out or not
   if (num_row == 0) {
     std::cout << "empty matrix"
@@ -51,7 +51,7 @@ void print_matrix(double** target_matrix, int num_row, int num_col) {
   }
 }
 
-void delete_matrix(double** target_matrix, int num_row) {
+void delete_matrix(float** target_matrix, int num_row) {
   for (int i = 0; i < num_row; i++) {
     delete[] target_matrix[i];
   }

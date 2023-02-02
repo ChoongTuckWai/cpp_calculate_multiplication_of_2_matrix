@@ -16,19 +16,18 @@ int main(int argc, char* argv[]) {
   int num_row_input_matrix_1, num_col_input_matrix_1, num_row_input_matrix_2,
       num_col_input_matrix_2;
   int random_seed;
+  
   if (argc == 2) {  // set all two matrix size to default value
     num_row_input_matrix_1 = DEFAULT_MATRIX_SIZE;
     num_col_input_matrix_1 = DEFAULT_MATRIX_SIZE;
     num_row_input_matrix_2 = DEFAULT_MATRIX_SIZE;
     num_col_input_matrix_2 = DEFAULT_MATRIX_SIZE;
-
     random_seed = atoi(argv[1]);
   } else if (argc == 3) {  // set all two matrix size to argv[1]
     num_row_input_matrix_1 = atoi(argv[1]);
     num_col_input_matrix_1 = atoi(argv[1]);
     num_row_input_matrix_2 = atoi(argv[1]);
     num_col_input_matrix_2 = atoi(argv[1]);
-
     random_seed = atoi(argv[2]);
   } else if (argc == 4) {  // set first matrix size to argv[1]
                            //, then set second matrix size to argv[2]
@@ -36,7 +35,6 @@ int main(int argc, char* argv[]) {
     num_col_input_matrix_1 = atoi(argv[1]);
     num_row_input_matrix_2 = atoi(argv[2]);
     num_col_input_matrix_2 = atoi(argv[2]);
-
     random_seed = atoi(argv[3]);
   } else if (argc == 6) {  // set first matrix size to (argv[1], argv[2])
                            //, then set second matrix size to (argv[3], argv[4])
@@ -44,7 +42,6 @@ int main(int argc, char* argv[]) {
     num_col_input_matrix_1 = atoi(argv[2]);
     num_row_input_matrix_2 = atoi(argv[3]);
     num_col_input_matrix_2 = atoi(argv[4]);
-
     random_seed = atoi(argv[5]);
   } else {  // report warning
     std::cout << "Wrong number of arguments, pls follow the instruction."
@@ -60,14 +57,14 @@ int main(int argc, char* argv[]) {
   std::cout << "random_seed: " << random_seed << "\n";
 
   // generate two matrices with random double type value
-  double** input_matrix_1 = generate_random_float_matrix(
+  float** input_matrix_1 = generate_random_float_matrix(
       num_row_input_matrix_1, num_col_input_matrix_1, random_seed);
-  double** input_matrix_2 = generate_random_float_matrix(
+  float** input_matrix_2 = generate_random_float_matrix(
       num_row_input_matrix_2, num_col_input_matrix_2, random_seed);
 
   // get output matrice and measure execution time
   auto start = std::chrono::high_resolution_clock::now();
-  double** output_matrix = multiply_2_matrix(
+  float** output_matrix = multiply_2_matrix(
       input_matrix_1, input_matrix_2, num_row_input_matrix_1,
       num_col_input_matrix_1, num_row_input_matrix_2, num_col_input_matrix_2);
   auto stop = std::chrono::high_resolution_clock::now();

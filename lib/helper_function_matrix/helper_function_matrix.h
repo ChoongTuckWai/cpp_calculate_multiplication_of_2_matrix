@@ -6,11 +6,11 @@
 
 #define USE_TIME_AS_RANDOM_SEED -1
 
-double** generate_random_float_matrix(
+float** generate_random_float_matrix(
     int num_row, int num_col, int random_seed = USE_TIME_AS_RANDOM_SEED);
 
-void print_matrix(double** target_matrix, int num_row, int num_col);
+void print_matrix(float** target_matrix, int num_row, int num_col);
 
-void delete_matrix(double** target_matrix, int num_row);
+void delete_matrix(float** target_matrix, int num_row);
 
 #endif

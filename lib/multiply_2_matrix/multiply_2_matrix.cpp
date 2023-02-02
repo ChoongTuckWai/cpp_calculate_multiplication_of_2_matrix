@@ -4,10 +4,10 @@
 
 #define BLOCK_SIZE 128
 
-double** multiply_2_matrix(double** matrix_1, double** matrix_2,
+float** multiply_2_matrix(float** matrix_1, float** matrix_2,
                            int num_row_matrix_1, int num_col_matrix_1,
                            int num_row_matrix_2, int num_col_matrix_2) {
-  double** output_matrix;
+  float** output_matrix;
 
   if (num_row_matrix_1 == 0) {
     std::cout << "cannot be multiplied!"
@@ -35,9 +35,9 @@ double** multiply_2_matrix(double** matrix_1, double** matrix_2,
   }
 
   // resize output matrix
-  output_matrix = new double*[num_row_matrix_1];
+  output_matrix = new float*[num_row_matrix_1];
   for (int i = 0; i < num_row_matrix_1; i++) {
-    output_matrix[i] = new double[num_col_matrix_2];
+    output_matrix[i] = new float[num_col_matrix_2];
   }
 
   // multiply 2 matrix
@@ -50,7 +50,7 @@ double** multiply_2_matrix(double** matrix_1, double** matrix_2,
   //             output_matrix[block_i][block_j] += matrix_1[block_i][block_k] *
   //             matrix_2[block_k][block_j];
   //           }
-  
+
   //         }
   //       }
   //     }
