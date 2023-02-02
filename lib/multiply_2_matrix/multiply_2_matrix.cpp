@@ -4,20 +4,16 @@
 
 #define BLOCK_SIZE 128
 
-void multiply_2_matrix(float** output_matrix, float** matrix_1, float** matrix_2,
-                           int num_row_matrix_1, int num_col_matrix_1,
-                           int num_row_matrix_2, int num_col_matrix_2) {
+void multiply_2_matrix(float* output_matrix, float* matrix_1, float* matrix_2,
+                       int num_row_matrix_1, int num_col_matrix_1,
+                       int num_row_matrix_2, int num_col_matrix_2) {
   if (num_row_matrix_1 == 0) {
-    std::cout << "cannot be multiplied!"
-              << "\n"
-              << "\n";
+    std::cout << "cannot be multiplied!\n\n";
 
     return;
   }
   if (num_row_matrix_2 == 0) {
-    std::cout << "cannot be multiplied!"
-              << "\n"
-              << "\n";
+    std::cout << "cannot be multiplied!\n\n";
 
     return;
   }
@@ -25,9 +21,7 @@ void multiply_2_matrix(float** output_matrix, float** matrix_1, float** matrix_2
   // check if this 2 metrix can be multiplied or not
   // if not, then return none
   if (num_col_matrix_1 != num_row_matrix_2) {
-    std::cout << "cannot be multiplied!"
-              << "\n"
-              << "\n";
+    std::cout << "cannot be multiplied!\n\n";
 
     return;
   }
@@ -52,7 +46,9 @@ void multiply_2_matrix(float** output_matrix, float** matrix_1, float** matrix_2
   for (int k = 0; k < num_col_matrix_1; ++k) {
     for (int i = 0; i < num_row_matrix_1; ++i) {
       for (int j = 0; j < num_col_matrix_2; ++j) {
-        output_matrix[i][j] += matrix_1[i][k] * matrix_2[k][j];
+        output_matrix[i * num_row_matrix_1 + j] +=
+            matrix_1[i * num_row_matrix_1 + k] *
+            matrix_2[k * num_col_matrix_1 + j];
       }
     }
   }

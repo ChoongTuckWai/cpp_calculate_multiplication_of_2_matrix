@@ -6,10 +6,10 @@
 #include <ctime>
 #include <iostream>
 
-float** generate_random_float_matrix(int num_row, int num_col,
+float* generate_random_float_matrix(int num_row, int num_col,
                                      int random_seed) {
   // allocate memory
-  float** new_matrix = allocate_memory_to_matrix(num_row, num_col);
+  float* new_matrix = allocate_memory_to_matrix(num_row, num_col);
 
   // set random seed
   if (random_seed == USE_TIME_AS_RANDOM_SEED) {
@@ -21,7 +21,7 @@ float** generate_random_float_matrix(int num_row, int num_col,
   // fill matrice
   for (int i = 0; i < num_row; i++) {
     for (int j = 0; j < num_col; j++) {
-      new_matrix[i][j] =
+      new_matrix[i * num_row + j] =
           (rand() % MAX_RAMDOM_NUM) +
           ((rand() % MAX_RAMDOM_NUM) / (pow(10, ROUNDING_ATFER_POINT)));
     }
@@ -30,21 +30,14 @@ float** generate_random_float_matrix(int num_row, int num_col,
   return new_matrix;
 }
 
-float** allocate_memory_to_matrix(int num_row, int num_col) {
-  float** new_matrix = new float*[num_row];
-
+float* allocate_memory_to_matrix(int num_row, int num_col) {
   // allocate memory
-  for (int i = 0; i < num_row; i++) {
-    new_matrix[i] = new float[num_col];
-  }
+  float* new_matrix = new float[num_row * num_col];
 
   return new_matrix;
 }
 
-void deallocate_memory_of_matrix(float** target_matrix, int num_row) {
-  for (int i = 0; i < num_row; i++) {
-    delete[] target_matrix[i];
-  }
+void deallocate_memory_of_matrix(float* target_matrix) {
   delete[] target_matrix;
 }
 
