@@ -2,6 +2,8 @@
 
 #include <iostream>
 
+#define BLOCK_SIZE 128
+
 double** multiply_2_matrix(double** matrix_1, double** matrix_2,
                            int num_row_matrix_1, int num_col_matrix_1,
                            int num_row_matrix_2, int num_col_matrix_2) {
@@ -39,9 +41,25 @@ double** multiply_2_matrix(double** matrix_1, double** matrix_2,
   }
 
   // multiply 2 matrix
-  for (int i = 0; i < num_row_matrix_1; ++i) {
-    for (int j = 0; j < num_col_matrix_2; ++j) {
-      for (int k = 0; k < num_col_matrix_1; ++k) {
+  // for (int k = 0; k < num_col_matrix_1; k += BLOCK_SIZE) {
+  //   for (int j = 0; j < num_col_matrix_2; j += BLOCK_SIZE) {
+  //     for (int i = 0; i < num_row_matrix_1; i += BLOCK_SIZE) {
+  //       for (int block_k = k; block_k < k + BLOCK_SIZE; ++k) {
+  //         for (int block_j = j; block_j < j + BLOCK_SIZE; ++j) {
+  //           for (int block_i = i; block_i < i + BLOCK_SIZE; ++i) {
+  //             output_matrix[block_i][block_j] += matrix_1[block_i][block_k] *
+  //             matrix_2[block_k][block_j];
+  //           }
+  
+  //         }
+  //       }
+  //     }
+  //   }
+  // }
+
+  for (int k = 0; k < num_col_matrix_1; ++k) {
+    for (int i = 0; i < num_row_matrix_1; ++i) {
+      for (int j = 0; j < num_col_matrix_2; ++j) {
         output_matrix[i][j] += matrix_1[i][k] * matrix_2[k][j];
       }
     }
