@@ -4,7 +4,7 @@
 #define MAX_RAMDOM_NUM 100
 #define ROUNDING_ATFER_POINT 3
 
-double** generate_random_float_matrix(int num_row, int num_col);
+double** generate_random_float_matrix(int num_row, int num_col, int random_seed);
 
 void print_matrix(double** target_matrix, int num_row, int num_col);
 

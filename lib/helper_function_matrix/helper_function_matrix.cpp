@@ -6,7 +6,9 @@
 #include <ctime>
 #include <iostream>
 
-double** generate_random_float_matrix(int num_row, int num_col) {
+#define USE_TIME_AS_RANDOM_SEED -1
+
+double** generate_random_float_matrix(int num_row, int num_col, int random_seed = USE_TIME_AS_RANDOM_SEED) {
   double** new_matrix  = new double*[num_row];;
 
   // allocate memory
@@ -15,7 +17,12 @@ double** generate_random_float_matrix(int num_row, int num_col) {
   }
 
   // set random seed
-  srand(static_cast<unsigned>(time(0)));
+  if (random_seed = USE_TIME_AS_RANDOM_SEED){
+    srand(static_cast<unsigned>(time(0)));
+  } else {
+    srand(static_cast<unsigned>(random_seed));
+  }
+  
   // fill matrice
   for (int i = 0; i < num_row; i++) {
     for (int j = 0; j < num_col; j++) {
