@@ -76,8 +76,11 @@ int main(int argc, char* argv[]) {
       std::chrono::duration_cast<std::chrono::microseconds>(stop - start);
 
   // print Execution Time and First element of matrix
-  std::cout << "First three element of matrix:" << output_matrix[0][0]
-            << output_matrix[0][1] << output_matrix[0][2] << "\n";
+  std::cout << "First three element of matrix:" 
+            << " " << output_matrix[0][0]
+            << " " << output_matrix[0][1] 
+            << " " << output_matrix[0][2] 
+            << "\n";
   std::cout << "Execution Time:"
             << "\n";
   std::cout << duration.count() << " microseconds"
