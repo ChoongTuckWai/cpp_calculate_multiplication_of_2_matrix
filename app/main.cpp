@@ -76,9 +76,8 @@ int main(int argc, char* argv[]) {
       std::chrono::duration_cast<std::chrono::microseconds>(stop - start);
 
   // print Execution Time and First element of matrix
-  std::cout << "First three element of matrix:"
-            << " " << output_matrix[0][0] << " " << output_matrix[0][1] << " "
-            << output_matrix[0][2] << "\n";
+  std::cout << "First three element of matrix: " << output_matrix[0][0] << " "
+            << output_matrix[0][1] << " " << output_matrix[0][2] << "\n";
   std::cout
       << "Last three element of matrix:"
       << " "
@@ -88,10 +87,8 @@ int main(int argc, char* argv[]) {
       << " "
       << output_matrix[num_row_input_matrix_1 - 1][num_col_input_matrix_2 - 3]
       << "\n";
-  std::cout << "Execution Time:"
-            << "\n";
-  std::cout << duration.count() << " microseconds"
-            << "\n";
+  std::cout << "Execution Time:\n";
+  std::cout << duration.count() << " microseconds\n";
 
   // deallocate memory
   delete_matrix(input_matrix_1, num_row_input_matrix_1);
