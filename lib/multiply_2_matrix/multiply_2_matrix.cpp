@@ -2,7 +2,7 @@
 
 #include <iostream>
 
-#define BLOCK_SIZE 128
+#define BLOCK_SIZE 100
 
 void multiply_2_matrix(float* output_matrix, float* matrix_1, float* matrix_2,
                        int num_row_matrix_1, int num_col_matrix_1,
@@ -27,16 +27,17 @@ void multiply_2_matrix(float* output_matrix, float* matrix_1, float* matrix_2,
   }
 
   // multiply 2 matrix
-  // for (int k = 0; k < num_col_matrix_1; k += BLOCK_SIZE) {
-  //   for (int j = 0; j < num_col_matrix_2; j += BLOCK_SIZE) {
-  //     for (int i = 0; i < num_row_matrix_1; i += BLOCK_SIZE) {
-  //       for (int block_k = k; block_k < k + BLOCK_SIZE; ++k) {
-  //         for (int block_j = j; block_j < j + BLOCK_SIZE; ++j) {
-  //           for (int block_i = i; block_i < i + BLOCK_SIZE; ++i) {
-  //             output_matrix[block_i][block_j] += matrix_1[block_i][block_k] *
-  //             matrix_2[block_k][block_j];
+  // for (int row = 0; row < num_row_matrix_1; row += BLOCK_SIZE) {
+  //   for (int col = 0; col < num_col_matrix_2; col += BLOCK_SIZE) {
+  //     for (int pointer = 0; pointer < num_col_matrix_1; pointer += BLOCK_SIZE) {
+  //       for (int block_row = row; block_row < row + BLOCK_SIZE; ++row) {
+  //         for (int block_col = col; block_col < col + BLOCK_SIZE; ++col) {
+  //           for (int block_pointer = pointer;
+  //                block_pointer < pointer + BLOCK_SIZE; ++pointer) {
+  //             output_matrix[(block_row * num_col_matrix_2) + block_col] +=
+  //                 matrix_1[(block_row * num_col_matrix_1) + block_pointer] *
+  //                 matrix_2[(block_pointer * num_col_matrix_2) + block_col];
   //           }
-
   //         }
   //       }
   //     }
@@ -44,10 +45,11 @@ void multiply_2_matrix(float* output_matrix, float* matrix_1, float* matrix_2,
   // }
   for (int row = 0; row < num_row_matrix_1; ++row) {
     for (int col = 0; col < num_col_matrix_2; ++col) {
+      output_matrix[row * num_col_matrix_2 + col]=0;
       for (int pointer = 0; pointer < num_col_matrix_1; ++pointer) {
-        output_matrix[(row * num_col_matrix_2) + col] +=
-            matrix_1[(row * num_col_matrix_1) + pointer] *
-            matrix_2[(pointer * num_col_matrix_2) + col];
+        output_matrix[row * num_col_matrix_2 + col] +=
+            matrix_1[row * num_col_matrix_1 + pointer] *
+            matrix_2[pointer * num_col_matrix_2 + col];
       }
     }
   }

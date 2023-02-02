@@ -7,4 +7,4 @@ function test(){
 }
 
 # run test
-test $app 2000 1
+test $app 1000 1
