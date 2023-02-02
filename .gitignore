@@ -2,7 +2,7 @@
 .vscode
 build
 out
-my_sh
+dev_sh
 
 # Prerequisites
 *.d
@@ -13,7 +13,7 @@ my_sh
 *.o
 *.obj
 
-# Precompiled Headers
+# Precompiled Headers           
 *.gch
 *.pch
 
