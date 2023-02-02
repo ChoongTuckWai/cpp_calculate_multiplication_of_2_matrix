@@ -47,7 +47,6 @@ void print_matrix(float* target_matrix, int num_row, int num_col) {
     std::cout << "empty matrix"
               << "\n";
   } else {
-    std::cout << num_row << " " << num_col << "\n";
     for (int i = 0; i < num_row; i++) {
       for (int j = 0; j < num_col; j++) {
         std::cout << target_matrix[i*num_row + j] << "\t";
