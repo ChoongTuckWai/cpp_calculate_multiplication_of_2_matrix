@@ -22,6 +22,7 @@ int main(int argc, char* argv[]) {
     float input_matrix_2[12] = {1, 3, 5, 7, 2, 4, 6, 8, 12, 14, 16, 18};  // 3x4
     float gt[8] = {41, 53, 65, 77, 86, 116, 146, 176};                    // 2x4
     float output_matrix[8] = {0};
+    std::cout << "Hello World for this app\n";
 
     multiply_2_matrix(output_matrix, input_matrix_1, input_matrix_2, 2, 3, 3,
                       4);
@@ -29,6 +30,8 @@ int main(int argc, char* argv[]) {
     print_matrix(gt, 1, 8);
     std::cout << "ret  = ";
     print_matrix(output_matrix, 1, 8);
+
+    return 0;
   }
 
   if (argc == 2) {  // set all two matrix size to default value
