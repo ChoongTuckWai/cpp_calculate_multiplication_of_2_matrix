@@ -29,19 +29,30 @@ void multiply_2_matrix(float* output_matrix, float* matrix_1, float* matrix_2,
     return;
   }
 
-  int pointer_output_row;
-  int pointer_output, pointer_matrix_1, pointer_matrix_2;
-  for (int row = 0; row < num_row_matrix_1; ++row) {
-    pointer_output_row = row * num_col_matrix_2;
-    pointer_matrix_1 = row * num_col_matrix_1;
-    for (int pointer = 0; pointer < num_col_matrix_1; ++pointer) {
-      pointer_matrix_2 = pointer * num_col_matrix_2;
-      for (int col = 0; col < num_col_matrix_2; ++col) {
-        pointer_output = pointer_output_row + col;
+  int row, col, pointer = 0;
+  int pointer_output_row = 0;
+  int pointer_output, pointer_matrix_1, pointer_matrix_2 = 0;
+  for (row = 0, pointer_output_row = 0, pointer_matrix_1 = 0;
+       row < num_row_matrix_1;
+       ++row, pointer_output_row = pointer_output_row + num_col_matrix_2,
+      pointer_matrix_1 = pointer_matrix_1 + num_col_matrix_1) {
+    for (pointer = 0, pointer_matrix_2 = 0; pointer < num_col_matrix_1;
+         ++pointer, pointer_matrix_2 = pointer_matrix_2 + num_col_matrix_2) {
+      for (col = 0, pointer_output = 0; col < num_col_matrix_2;
+           ++col, pointer_output = pointer_output_row + col) {
         output_matrix[pointer_output] += matrix_1[pointer_matrix_1 + pointer] *
                                          matrix_2[pointer_matrix_2 + col];
       }
     }
   }
+
+  // while (row < num_row_matrix_1) {
+  //   while (pointer < num_row_matrix_1) {
+  //     while (col < num_col_matrix_2) {
+  //       /* code */
+  //     }
+  //   }
+  // }
+
   return;
 }
