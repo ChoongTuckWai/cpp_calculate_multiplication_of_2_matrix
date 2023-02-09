@@ -7,16 +7,16 @@ bool is_matrix_cannot_be_multipied(int num_row_matrix_1, int num_col_matrix_1,
   // check if matrix is 0 size
   if (num_row_matrix_1 == 0 || num_col_matrix_1 == 0 || num_row_matrix_2 == 0 ||
       num_col_matrix_2 == 0) {
-    return false;
+    return true;
   }
 
   // check if this 2 metrix can be multiplied or not
   // if not, then return none
   if (num_col_matrix_1 != num_row_matrix_2) {
-    return false;
+    return true;
   }
 
-  return true;
+  return false;
 }
 
 void multiply_2_matrix(float* output_matrix, float* matrix_1, float* matrix_2,
