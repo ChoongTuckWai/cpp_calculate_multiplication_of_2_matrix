@@ -1,3 +1,25 @@
+
+## Usage
+[USAGE] for hello world:
+```
+./app
+```
+
+[USAGE] for both matrix in same size:
+```
+./app [size] [random_seed]
+```
+
+[USAGE] for 2 matrix in diffrence size:
+```
+./app [m1_size] [m2_size] [random_seed]
+```
+
+[USAGE] for 2 matrix in diffrence row and col:
+```
+./app  [m1_row] [m1_col] [m2_row] [m2_col] [random_seed]
+```
+
 ## DONE
 
 1. To avoid pollute source tree, an out-of-source build code style is recommended. "cmake" is a popular build code tool that is capable of fitting aforementioned requirements. Please involve this tool to your project.

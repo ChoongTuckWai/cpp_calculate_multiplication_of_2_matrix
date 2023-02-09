@@ -61,8 +61,11 @@ int main(int argc, char* argv[]) {
     num_col_input_matrix_2 = atoi(argv[4]);
     random_seed = atoi(argv[5]);
   } else {  // report warning
-    std::cout << "Wrong number of arguments, pls follow the instruction."
-              << "\n";
+    std::cout << "Wrong number of arguments, pls follow the instruction.\n"
+              << "[USAGE] for hello world:\n./app\n"
+              << "[USAGE] for both matrix in same size:\n./app [size] [random_seed]\n"
+              << "[USAGE] for 2 matrix in diffrence size:\n./app [m1_size] [m2_size] [random_seed]\n"
+              << "[USAGE] for 2 matrix in diffrence row and col:\n./app  [m1_row] [m1_col] [m2_row] [m2_col] [random_seed]\n";
     return 0;
   }
 
