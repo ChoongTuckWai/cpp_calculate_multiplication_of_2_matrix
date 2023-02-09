@@ -5,6 +5,3 @@ function test(){
     $1 $2 $3 $4 $5
     echo ""
 }
-
-# run test
-test $app 2000
