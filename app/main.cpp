@@ -6,6 +6,7 @@
 #include <lib/helper_function_matrix/helper_function_matrix.h>
 #include <lib/multiply_2_matrix/multiply_2_matrix.h>
 
+#include <chrono>  //Measure execution time
 #include <iostream>
 
 void hello_world() {
@@ -59,10 +60,10 @@ int main(int argc, char* argv[]) {
   }
 
   // print num_row and col _input_matrix_1 and 2
-  std::cout << "num_row_input_matrix_1: " << num_row_input_matrix_1 << "\n";
-  std::cout << "num_col_input_matrix_1: " << num_col_input_matrix_1 << "\n";
-  std::cout << "num_row_input_matrix_2: " << num_row_input_matrix_2 << "\n";
-  std::cout << "num_col_input_matrix_2: " << num_col_input_matrix_2 << "\n";
+  std::cout << "num_row_input_matrix_1: " << num_row_input_matrix_1
+            << ", num_col_input_matrix_1: " << num_col_input_matrix_1 << "\n";
+  std::cout << "num_row_input_matrix_2: " << num_row_input_matrix_2
+            << ", num_col_input_matrix_2: " << num_col_input_matrix_2 << "\n";
 
   // generate two matrices with random float type value
   float* input_matrix_1 = generate_random_float_matrix(num_row_input_matrix_1,
@@ -75,9 +76,16 @@ int main(int argc, char* argv[]) {
       allocate_memory_to_matrix(num_row_input_matrix_1, num_col_input_matrix_2);
 
   // get output matrice
+  auto start = std::chrono::high_resolution_clock::now();
   multiply_2_matrix(output_matrix, input_matrix_1, input_matrix_2,
                     num_row_input_matrix_1, num_col_input_matrix_1,
                     num_row_input_matrix_2, num_col_input_matrix_2);
+  auto stop = std::chrono::high_resolution_clock::now();
+
+  auto duration =
+      std::chrono::duration_cast<std::chrono::microseconds>(stop - start);
+  std::cout << "Execution Time:" << duration.count() / 1000000.0
+            << " seconds\n";
 
   // deallocate memory of input_matrix_1, input_matrix_2, output_matrix
   deallocate_memory_of_matrix(input_matrix_1);
