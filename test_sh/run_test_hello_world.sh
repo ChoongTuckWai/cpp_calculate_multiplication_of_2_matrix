@@ -1,3 +1,4 @@
-app="./build/out/bin/app"
+. ./test_sh/_base.sh
 
-$app
+# hello world
+time $app
