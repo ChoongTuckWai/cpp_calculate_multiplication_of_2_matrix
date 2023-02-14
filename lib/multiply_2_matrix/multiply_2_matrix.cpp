@@ -55,21 +55,18 @@ void multiply_2_matrix(float* output_matrix, float* matrix_1, float* matrix_2,
   int pointer_matrix_2_col;
 
   pointer_output = 0, pointer_matrix_1_row = 0;
-  for (index_output_row = 0; index_output_row < num_row_matrix_1;) {
-    for (index_output_col = 0; index_output_col < num_col_matrix_2;) {
+  for (index_output_row = 0; index_output_row < num_row_matrix_1;
+       index_output_row++, pointer_matrix_1_row += num_col_matrix_1) {
+    for (index_output_col = 0; index_output_col < num_col_matrix_2;
+         pointer_output += 1, index_output_col++) {
       for (index_element = 0, pointer_matrix_2_col = 0;
-           index_element < num_col_matrix_1;) {
+           index_element < num_col_matrix_1;
+           index_element++, pointer_matrix_2_col += num_col_matrix_2) {
         output_matrix[pointer_output] +=
             matrix_1[pointer_matrix_1_row + index_element] *
             matrix_2[pointer_matrix_2_col + index_output_col];
-        index_element++;
-        pointer_matrix_2_col += num_col_matrix_2;
       }
-      pointer_output += 1;
-      index_output_col++;
     }
-    index_output_row++;
-    pointer_matrix_1_row += num_col_matrix_1;
   }
 
   return;
